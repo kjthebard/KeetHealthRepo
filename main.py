@@ -7,8 +7,6 @@ import os
 L = LoadCsv()
 T = TransformData()
 
-print(os.path.dirname(__file__)+"/data/users.csv")
-
 # Call Functions
 L.load_pandas(file=os.path.dirname(__file__)+"/data/users.csv")
 T.transform_data()
