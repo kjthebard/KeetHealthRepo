@@ -56,6 +56,12 @@ I could have turned this into an automatic templater based on the templates in t
 generated ddl for each environment under the sql_template/sql_ddl folder/. There should be 6 templates, 3 for each environment
 multiplied by the 2 yml templates defined in the templates folder.
 
+### Linting
+
+Python linting is really good to keep teams working and agreed upon. This repo is great for that:
+https://black.readthedocs.io/en/stable/the_black_code_style.html#pragmatism
+
+
 ### Processing multiple files
 
 In a real situation I would want to find a solution that would read the entire directory where the data was located. 
