@@ -17,7 +17,12 @@ otherwise you will be wondering why your python won't connect
 
 ## Database Init
 Next, we need to create a database that we can use to load the data to! In my solution I created a database called 
-"dev_keet" This is **very important** that the database be named the same. Otherwise the solution will not work! 
+"dev_keet" in Postgres.  This is **very important** that the database be named the same. Otherwise the solution will not work! 
+Feel free to create the database either through a GUI or through a CREATE DATABASE statement inside the postgres sql inside 
+the docker container.  If you need to create it manually through the container, you will need to get the container id 
+from the docker ps command and then run a docker exec -it <container id> bash. Then, running a psql -U postgres command 
+will get you into the postgres terminal. From there, you can run a CREATE DATABASE dev_keet to create the database where
+the data will appear.  
 
 ## Python main runner 
 Once you have created the database you can initialize the solution by running the main.py function. This script utilized
