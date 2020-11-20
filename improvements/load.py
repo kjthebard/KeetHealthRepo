@@ -1,5 +1,5 @@
 import psycopg2
-from sql_template import users
+from improvements.sql_template import users
 import yaml
 import os
 from glob import glob
@@ -12,7 +12,6 @@ class Load:
         self.data = glob(os.path.dirname(__file__)[:-5] + "/data/users.csv") ## Again trying I'm working on my home PC, need it to work locally on all computers.
         self.configs = []
         self.sql_scripts = []
-        self.connection = psycopg2.connect(database="dummy", user='kieran', password="epona27", )
 
     def load_configs(self):
         # Loading configs from yml files... This way I can render all of my sql statements across my environments at once.
@@ -22,8 +21,7 @@ class Load:
                 self.configs.append(yaml.safe_load(f))
 
         self.create_pg_objects(conf=self.configs)
-
-
+        self.execute_pg_objects()
 
     def create_pg_objects(self, conf):
 
@@ -65,7 +63,16 @@ class Load:
                 p.write(dev_sql_create_daily)
             p.close()
 
+    def execute_pg_objects(self):
 
+        removed_newlines = list(map(lambda s: s.strip(), self.sql_scripts))
+        clean_sql = list(filter(None, removed_newlines))
+
+        conn = psycopg2.connect(database="dev_keet", user='postgres', password="epona27", host='localhost', port='5432')
+        curr = conn.cursor()
+
+        for sql in clean_sql:
+            curr.execute(sql)
 
 if __name__ == "__main__":
     L = Load()

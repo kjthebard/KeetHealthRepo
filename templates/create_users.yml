@@ -1,15 +1,15 @@
-DEV:
-    ROLE: KIERAN
-    DATABASE: KEET
-    SCHEMA: CUSTOMERS
-    TABLE: USERS
-TST:
-    ROLE: KIERAN
-    DATABASE: KEET
-    SCHEMA: CUSTOMERS
-    TABLE: USERS
-PROD:
-    ROLE: KIERAN
-    DATABASE: KEET
-    SCHEMA: CUSTOMERS
-    TABLE: USERS
+dev:
+    ROLE: kieran
+    DATABASE: keet
+    SCHEMA: customers
+    TABLE: users
+tst:
+    ROLE: kieran
+    DATABASE: keet
+    SCHEMA: customers
+    TABLE: users
+prod:
+    ROLE: kieran
+    DATABASE: keet
+    SCHEMA: customers
+    TABLE: users
