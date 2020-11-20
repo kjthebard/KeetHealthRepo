@@ -47,9 +47,4 @@ class TransformData:
         final_df = renamed_count[['year', 'month', 'day', 'observed', 'count']]
 
         # write the table out only if the table doesn't exist!
-        result = self.engine.execute("select * from information_schema.tables where table_name=%s", ('daily_user_counts',))
-        for row in result:
-            if row is None:
-                final_df.to_sql('daily_user_counts', self.engine)
-            else:
-                print("daily_user_counts table exists")
+        final_df.to_sql('daily_user_counts', self.engine)

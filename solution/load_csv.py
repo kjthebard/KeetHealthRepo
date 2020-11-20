@@ -11,10 +11,5 @@ class LoadCsv:
     def load_pandas(self, file):
         ### Relying on defaults here.
 
-        result = self.engine.execute("select * from information_schema.tables where table_name=%s", ('users',))
-        for row in result:
-            if row is None:
-                df = pd.read_csv(file)
-                df.to_sql('users', self.engine)
-            else:
-                print("users table exists")
+        df = pd.read_csv(file)
+        df.to_sql('users', self.engine)
