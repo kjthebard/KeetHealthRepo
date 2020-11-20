@@ -8,7 +8,7 @@ my solution.
 ## Docker Init
 For those who have never used docker before I will walk you through how to set up a postgreSQL docker image. 
 
-To start: please download the latest image of postgreSQL, you can do this by running this command:
+To start: please download the latest image of postgreSQL, you can do this by running this docker command in bash or terminal:
 
 docker run -d --name keet-postgres -p 5432:5432 -e POSTGRES_PASSWORD=epona27 -e PGDATA=/var/lib/postgresql/data/pgdata -v /custom/mount:/var/lib/postgresql/data postgres
 
