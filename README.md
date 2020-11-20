@@ -20,7 +20,7 @@ Next, we need to create a database that we can use to load the data to! In my so
 "dev_keet" This is **very important** that the database be named the same. Otherwise the solution will not work! 
 
 ## Python main runner 
-Once you have created the database you can initialize the solution by using the main.py function. This script utilized
+Once you have created the database you can initialize the solution by running the main.py function. This script utilized
 the classes written in the solution folder. This is where the magic happens! There are two classes, one to Load the data
 and another to Transform the data. I have commented my work (more on the transformation side) to show my thought process
 
