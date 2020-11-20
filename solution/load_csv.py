@@ -9,7 +9,12 @@ class LoadCsv:
         self.engine = create_engine('postgresql://postgres:epona27@localhost:5432/dev_keet')
 
     def load_pandas(self, file):
-        df = pd.read_csv(file)
-        df.to_sql('users', self.engine)
+        ### Relying on defaults here.
 
-
+        result = self.engine.execute("select * from information_schema.tables where table_name=%s", ('users',))
+        for row in result:
+            if row is None:
+                df = pd.read_csv(file)
+                df.to_sql('users', self.engine)
+            else:
+                print("users table exists")

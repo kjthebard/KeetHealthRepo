@@ -46,5 +46,10 @@ class TransformData:
         # reorganize so that the table has the columns in the order stated in the code challenge
         final_df = renamed_count[['year', 'month', 'day', 'observed', 'count']]
 
-        # write the table out
-        final_df.to_sql('daily_user_counts', self.engine)
+        # write the table out only if the table doesn't exist!
+        result = self.engine.execute("select * from information_schema.tables where table_name=%s", ('daily_user_counts',))
+        for row in result:
+            if row is None:
+                final_df.to_sql('daily_user_counts', self.engine)
+            else:
+                print("daily_user_counts table exists")
