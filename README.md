@@ -5,7 +5,7 @@ Hello! To run the solution to the coding challenge will require some set up. If 
 be a breeze. In this code challenge I used a localhost docker image to host a version of PostgresDB so that I could verify 
 my solution. 
 
-##Docker Init
+## Docker Init
 For those who have never used docker before I will walk you through how to set up a postgreSQL docker image. 
 
 To start: please download the latest image of postgreSQL, you can do this by running this command:
@@ -15,7 +15,7 @@ docker run -d --name keet-postgres -p 5432:5432 -e POSTGRES_PASSWORD=epona27 -e 
 I also have included this in the repository itself under the docker folder just incase! Remember to expose the port, 
 otherwise you will be wondering why your python won't connect
 
-##Database Init
+## Database Init
 Next, we need to create a database that we can use to load the data to! In my solution I created a database called 
 "dev_keet" This is **very important** that the database be named the same. Otherwise the solution will not work! 
 
